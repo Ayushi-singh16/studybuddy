@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Syllabus</title>
+    <link rel="stylesheet" href="syllabus.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Your Study Dashboard</h1>
+        
+        <p>Choose your subject below to download the syllabus.</p>
+        
+        <div class="select-subject">
+            <label for="subject">Select Subject:</label>
+            <select id="subject" title="Click to select your subject">
+                <option value="">--Select Subject--</option>
+                <option value="cc">cognitve computing</option>
+                <option value="html">advancded web tech</option>
+                <option value="dav">Data analytics </option>
+                <option value="network">computer network</option>
+                <option value="ml">Machine learning</option>
+            </select>
+        </div>
+
+        <div class="download-btn">
+            <button id="downloadButton" onclick="downloadSyllabus()">Download Syllabus</button>
+        </div>
+
+        <p id="error-message" style="color: red; display: none;">Please select a subject first!</p>
+
+        <div class="footer">
+            <p>&copy; 2025 Study Buddy | Designed for a better learning experience</p>
+        </div>
+    </div>
+
+    <script src="syllabus.js"></script>
+</body>
+</html>

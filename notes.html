@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Study Buddy - Notes</title>
+  <link rel="stylesheet" href="notes.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="container">
+    <h1>📚 Study Buddy - Notes</h1>
+
+    <!-- Motivational Quote -->
+    <div class="quote">
+      <p>✨ <i>"The future belongs to those who believe in the beauty of their dreams."</i> – Eleanor Roosevelt</p>
+    </div>
+
+    <!-- Subject Selector -->
+    <div class="notes-box">
+      <label for="subjectSelect">Select Subject:</label>
+      <select id="subjectSelect" onchange="showDownloadLink()">
+        <option value="">-- Select Subject --</option>
+        <option value="cc">Cognitive Computing</option>
+        <option value="html">Advanced Web Tech</option>
+        <option value="dav">Data Analytics</option>
+        <option value="network">Computer Network</option>
+        <option value="ml">Machine Learning</option>
+      </select>
+
+      <!-- Download Button -->
+      <div id="downloadLink" style="display: none; margin-top: 20px;">
+        <a id="link" href="#" download class="download-btn">Download Notes 📥</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Function to show the download link based on selected subject
+    function showDownloadLink() {
+      const subject = document.getElementById("subjectSelect").value;
+      const link = document.getElementById("link");
+      const downloadDiv = document.getElementById("downloadLink");
+
+      if (subject) {
+        // Map subjects to their notes files (e.g., htmlnotes.pdf, mlnotes.pdf)
+        const notesFiles = {
+          cc: "cognitiveNotes.pdf",
+          html: "htmlNotes.pdf",
+          dav: "davNotes.pdf",
+          network: "networkNotes.pdf",
+          ml: "mlNotes.pdf"
+        };
+
+        // Update the link's href to the correct file
+        link.href = notesFiles[subject];
+        link.style.display = "inline-block"; // Show the download button
+        downloadDiv.style.display = "block"; // Show the download section
+      } else {
+        downloadDiv.style.display = "none"; // Hide the download section if no subject is selected
+      }
+    }
+
+    // Function to change background color based on time of day
+    function changeBackground() {
+      const hour = new Date().getHours();
+      const body = document.body;
+
+      if (hour >= 6 && hour < 12) {
+        body.style.backgroundColor = "#f1f8e9"; // Light Green for morning
+      } else if (hour >= 12 && hour < 18) {
+        body.style.backgroundColor = "#e1f5fe"; // Light Blue for afternoon
+      } else {
+        body.style.backgroundColor = "#fce4ec"; // Light Pink for evening
+      }
+    }
+
+    // Run background change when the page loads
+    window.onload = changeBackground;
+  </script>
+</body>
+</html>
