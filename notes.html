@@ -45,12 +45,13 @@
       if (subject) {
         // Map subjects to their notes files (e.g., htmlnotes.pdf, mlnotes.pdf)
         const notesFiles = {
-          cc: "cognitiveNotes.pdf",
-          html: "htmlNotes.pdf",
-          dav: "davNotes.pdf",
-          network: "networkNotes.pdf",
-          ml: "mlNotes.pdf"
-        };
+  cc: "/studybuddy/cognitiveNotes.pdf",
+  html: "/studybuddy/htmlNotes.pdf",
+  dav: "/studybuddy/davNotes.pdf",
+  network: "/studybuddy/networkNotes.pdf",
+  ml: "/studybuddy/mlNotes.pdf"
+};
+
 
         // Update the link's href to the correct file
         link.href = notesFiles[subject];
